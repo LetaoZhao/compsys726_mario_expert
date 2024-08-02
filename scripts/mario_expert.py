@@ -29,7 +29,7 @@ class MarioController(MarioEnvironment):
 
     def __init__(
         self,
-        act_freq: int = 10,
+        act_freq: int = 5,   ###########################
         emulation_speed: int = 0,
         headless: bool = False,
     ) -> None:
