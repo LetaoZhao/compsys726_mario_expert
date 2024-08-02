@@ -29,7 +29,7 @@ class MarioController(MarioEnvironment):
 
     def __init__(
         self,
-        act_freq: int = 5,   ###########################
+        act_freq: int = 1,   ###########################
         emulation_speed: int = 0,
         headless: bool = False,
     ) -> None:
@@ -101,6 +101,8 @@ class MarioExpert:
 
         self.video = None
 
+        self.past_act = None
+
     def choose_action(self):
         state = self.environment.game_state()
         frame = self.environment.grab_frame()
@@ -111,14 +113,8 @@ class MarioExpert:
         # return random.randint(0, len(self.environment.valid_actions) - 1)
 
         #================================================================================
-        counter = 0
 
-        if (counter == 0):
-            counter = 1
-            return 2
-        else:
-            counter = 0
-            return 1
+        return 4
         #================================================================================
         
 
