@@ -114,8 +114,10 @@ class MarioExpert:
         counter = 0
 
         if (counter == 0):
+            counter += 1
             return 2
         else:
+            counter -= 1
             return 1
         #================================================================================
         
