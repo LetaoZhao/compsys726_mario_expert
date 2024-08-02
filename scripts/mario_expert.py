@@ -130,6 +130,7 @@ class MarioExpert:
 
         # Run the action on the environment
         self.environment.run_action(action)
+        self.environment.run_action(action)
 
     def play(self):
         """
