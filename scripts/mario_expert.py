@@ -166,10 +166,12 @@ class MarioExpert:
         #Traverse all the coordinates in the area and find the matching position
         for row_y in range(0,16):
             for column_x in range(0,20):
-                print("at position: " + str(row_y) + "," + str(column_x))
+                #print("at position: " + str(row_y) + "," + str(column_x))
                 temp_object_type = Game_Area[row_y][column_x]
-                print("the object is: " + str(temp_object_type))
+                #print("the object is: " + str(temp_object_type))
                 if ((temp_object_type != 0) and (temp_object_type != 10)):
+                    print("at position: " + str(row_y) + "," + str(column_x))
+                    print("the object is: " + str(temp_object_type))
                     objects_position.append([column_x,row_y,temp_object_type,0])
 
 
