@@ -76,8 +76,11 @@ class MarioController(MarioEnvironment):
         # Simply toggles the buttons being on or off for a duration of act_freq
         self.pyboy.send_input(self.valid_actions[action])
 
+        count = 0
         for _ in range(self.act_freq):
             self.pyboy.tick()
+            print("in tick " + count)
+            count = count + 1
 
         self.pyboy.send_input(self.release_button[action])
 
@@ -130,11 +133,12 @@ class MarioExpert:
         action = self.choose_action()
 
         # Run the action on the environment
+        print("start action")
         self.environment.run_action(action)
-        print("action finished 1")
-        time.sleep(3)
-        # self.environment.run_action(action)
-        # print("action finished 2")
+        print("action finished ")
+
+
+        
 
     def play(self):
         """
