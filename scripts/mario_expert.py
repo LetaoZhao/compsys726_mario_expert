@@ -9,6 +9,7 @@ Original Mario Manual: https://www.thegameisafootarcade.com/wp-content/uploads/2
 import json
 import logging
 import random
+import time
 
 import cv2
 from mario_environment import MarioEnvironment
@@ -30,7 +31,7 @@ class MarioController(MarioEnvironment):
     def __init__(
         self,
         act_freq: int = 10,   ###########################
-        emulation_speed: int = -2,
+        emulation_speed: int = 0,
         headless: bool = False,
     ) -> None:
         super().__init__(
@@ -109,7 +110,7 @@ class MarioExpert:
         game_area = self.environment.game_area()
 
         # Implement your code here to choose the best action
-        # time.sleep(0.1)
+        time.sleep(0.1)
         # return random.randint(0, len(self.environment.valid_actions) - 1)
 
         #================================================================================
