@@ -44,12 +44,13 @@ class MarioController(MarioEnvironment):
 
         # Example of valid actions based purely on the buttons you can press
         valid_actions: list[WindowEvent] = [
-            WindowEvent.PRESS_ARROW_DOWN,   # 0
-            WindowEvent.PRESS_ARROW_LEFT,   # 1
-            WindowEvent.PRESS_ARROW_RIGHT,  # 2
-            WindowEvent.PRESS_ARROW_UP,     # 3
-            WindowEvent.PRESS_BUTTON_A,     # 4
-            WindowEvent.PRESS_BUTTON_B,     # 5
+                                            #in_list value      #required input index
+            WindowEvent.PRESS_ARROW_DOWN,   #      ?
+            WindowEvent.PRESS_ARROW_LEFT,   #      4                     1
+            WindowEvent.PRESS_ARROW_RIGHT,  #      2
+            WindowEvent.PRESS_ARROW_UP,     #      3
+            WindowEvent.PRESS_BUTTON_A,     #      4
+            WindowEvent.PRESS_BUTTON_B,     #      5
         ]
 
         release_button: list[WindowEvent] = [
@@ -120,16 +121,17 @@ class MarioExpert:
         # return random.randint(0, len(self.environment.valid_actions) - 1)
 
         #================================================================================
-        print("increment count")
-        self.past_count = self.past_count + 1
-        print("now the count is: " + str(self.past_count))
+        # print("increment count")
+        # self.past_count = self.past_count + 1
+        # print("now the count is: " + str(self.past_count))
 
-        if (self.past_count > 5):
-            print("count is bigge than 5, return 0")
-            return 0
-        else:
-            print("count is not bigger than 3, return: " + str(self.test_action_list[self.past_count]))
-            return self.test_action_list[self.past_count]
+        # if (self.past_count > 5):
+        #     print("count is bigge than 5, return 0")
+        #     return 0
+        # else:
+        #     print("count is not bigger than 3, return: " + str(self.test_action_list[self.past_count]))
+        #     return self.test_action_list[self.past_count]
+        return 3
         #================================================================================
         
 
