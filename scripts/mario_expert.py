@@ -74,6 +74,9 @@ class MarioController(MarioEnvironment):
         """
 
         # Simply toggles the buttons being on or off for a duration of act_freq
+        print("In func run_action")
+        print("the pass in action is: " + str(action))
+        
         self.pyboy.send_input(self.valid_actions[action])
         print("run action: " + str(self.valid_actions[action]))
 
@@ -107,6 +110,7 @@ class MarioExpert:
         self.test_action_list = [2,2,4,2]
 
     def choose_action(self):
+        print("In func choose_action")
         state = self.environment.game_state()
         frame = self.environment.grab_frame()
         game_area = self.environment.game_area()
@@ -116,10 +120,15 @@ class MarioExpert:
         # return random.randint(0, len(self.environment.valid_actions) - 1)
 
         #================================================================================
+        print("increment count")
         self.past_count += self.past_count
+        print("now the count is: " + str(self.past_count))
+
         if (self.past_count > 3):
+            print("count is bigge than 3, return 0")
             return 0
         else:
+            print("count is not bigger than 3, return: " + str(self.test_action_list[self.past_count]))
             return self.test_action_list[self.past_count]
         #================================================================================
         
