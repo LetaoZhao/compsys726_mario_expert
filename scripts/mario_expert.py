@@ -131,7 +131,7 @@ class MarioExpert:
         #     print("count is not bigger than 3, return: " + str(self.test_action_list[self.past_count]))
         #     return self.test_action_list[self.past_count]
 
-        return 0
+        return 1
         #================================================================================
         
 
