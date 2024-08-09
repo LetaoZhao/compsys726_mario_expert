@@ -104,7 +104,7 @@ class MarioExpert:
         self.video = None
 
         self.past_count = -1
-        self.test_action_list = [2,2,4,2]
+        self.test_action_listx = [2,2,4,2]
 
     def choose_action(self):
         state = self.environment.game_state()
@@ -120,7 +120,7 @@ class MarioExpert:
         if (self.past_count > 3):
             return 0
         else:
-            return self.test_action_list(self.past_count)
+            return self.test_action_listx(self.past_count)
         #================================================================================
         
 
