@@ -116,14 +116,8 @@ class MarioExpert:
         frame = self.environment.grab_frame()
         game_area = self.environment.game_area()
         print("===============================================")
-        print(state)
-        print("-----------------------------------------------")
-        print(frame)
-        print("-----------------------------------------------")
         print(game_area)
         print("===============================================")
-        print(" ")
-        print(" ")
 
         # Implement your code here to choose the best action
         time.sleep(0.25)
@@ -154,10 +148,7 @@ class MarioExpert:
         action = self.choose_action()
 
         # Run the action on the environment
-        print("start action")
         self.environment.run_action(action)
-        print("action finished ")
-        time.sleep(3)
 
 
 
