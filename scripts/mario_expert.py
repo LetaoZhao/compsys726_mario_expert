@@ -117,6 +117,9 @@ class MarioExpert:
         game_area = self.environment.game_area()
         print("===============================================")
         print(game_area)
+        print("-----------------------------------------------")
+        objects_pos = get_object_GameArea_position(game_area)
+        print(objects_pos)
         print("===============================================")
 
         # Implement your code here to choose the best action
@@ -135,7 +138,6 @@ class MarioExpert:
             # print("count is not bigger than 3, return: " + str(self.test_action_list[self.past_count]))
             return self.test_action_list[self.past_count]
         #================================================================================
-        return 2
 
     def step(self):
         """
@@ -151,6 +153,23 @@ class MarioExpert:
         self.environment.run_action(action)
 
 
+    def get_object_GameArea_position(self, Game_Area):
+        # this function is used to get the position of any objects appeards in the game area
+        # target_object input int:|      0      |   1   |  14  |      
+        #          actual meaming:| empty_space | mario | pipe |
+
+        # the function will return all the objects's coordinates
+        objects_position = []     # [[x,y,object_type,object_inType_id],  --object 1 
+                                  #  [x,y,object_type,object_inType_id]]  --object 2
+
+        #Traverse all the coordinates in the area and find the matching position
+        for row_y in range(0,16):
+            for column_x in range(0,20):
+                temp_object_type = Game_Area[row_y][column_x]
+                if ((temp_object_type != 0) and (temp_object_type != 10)):
+                    objects_position.append([column_x,row_y,temp_object_type,0])
+        
+        return objects_position
 
 
     def play(self):
