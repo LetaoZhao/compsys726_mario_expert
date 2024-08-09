@@ -118,7 +118,7 @@ class MarioExpert:
         print("===============================================")
         print(game_area)
         print("-----------------------------------------------")
-        objects_pos = get_object_GameArea_position(game_area)
+        objects_pos = self.get_object_GameArea_position(game_area)
         print(objects_pos)
         print("===============================================")
 
