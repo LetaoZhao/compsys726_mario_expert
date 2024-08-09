@@ -133,8 +133,8 @@ class MarioExpert:
         self.environment.run_action(action)
         print("action finished 1")
         time.sleep(3)
-        self.environment.run_action(action)
-        print("action finished 2")
+        # self.environment.run_action(action)
+        # print("action finished 2")
 
     def play(self):
         """
