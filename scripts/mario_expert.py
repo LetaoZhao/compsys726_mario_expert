@@ -108,7 +108,7 @@ class MarioExpert:
         self.video = None
 
         self.past_count = -1
-        self.test_action_list = [4,2,2,2,2,2,4,4,4,2,2,2,2]
+        self.test_action_list = [2,2,2,2,2,2,2,2]
 
     def choose_action(self):
         # print("In func choose_action")
@@ -125,15 +125,15 @@ class MarioExpert:
 
         #================================================================================
         # print("increment count")
-        # self.past_count = self.past_count + 1
+        self.past_count = self.past_count + 1
         # print("now the count is: " + str(self.past_count))
 
-        # if (self.past_count > len(self.test_action_list) - 1):
-        #     print("count is bigge than 5, return 0")
-        #     return 0
-        # else:
-        #     print("count is not bigger than 3, return: " + str(self.test_action_list[self.past_count]))
-        #     return self.test_action_list[self.past_count]
+        if (self.past_count > len(self.test_action_list) - 1):
+            # print("count is bigge than 5, return 0")
+            return 0
+        else:
+            # print("count is not bigger than 3, return: " + str(self.test_action_list[self.past_count]))
+            return self.test_action_list[self.past_count]
         #================================================================================
         return 2
 
