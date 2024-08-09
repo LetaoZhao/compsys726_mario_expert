@@ -76,7 +76,7 @@ class MarioController(MarioEnvironment):
         # Simply toggles the buttons being on or off for a duration of act_freq
         print("In func run_action")
         print("the pass in action is: " + str(action))
-        
+
         self.pyboy.send_input(self.valid_actions[action])
         print("run action: " + str(self.valid_actions[action]))
 
@@ -121,7 +121,7 @@ class MarioExpert:
 
         #================================================================================
         print("increment count")
-        self.past_count += self.past_count
+        self.past_count = self.past_count + 1
         print("now the count is: " + str(self.past_count))
 
         if (self.past_count > 3):
