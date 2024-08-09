@@ -154,6 +154,7 @@ class MarioExpert:
 
 
     def get_object_GameArea_position(self, Game_Area):
+        print("search function start +++++++++++++++++++++++++++++++++++++++++++")
         # this function is used to get the position of any objects appeards in the game area
         # target_object input int:|      0      |   1   |  14  |      
         #          actual meaming:| empty_space | mario | pipe |
@@ -165,10 +166,14 @@ class MarioExpert:
         #Traverse all the coordinates in the area and find the matching position
         for row_y in range(0,16):
             for column_x in range(0,20):
+                print("at position: " + str(row_y) + "," + str(column_x))
                 temp_object_type = Game_Area[row_y][column_x]
+                print("the object is: " + str(temp_object_type))
                 if ((temp_object_type != 0) and (temp_object_type != 10)):
                     objects_position.append([column_x,row_y,temp_object_type,0])
-        
+
+
+        print("search function end ---------------------------------------")
         return objects_position
 
 
