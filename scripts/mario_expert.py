@@ -136,6 +136,7 @@ class MarioExpert:
         print("start action")
         self.environment.run_action(action)
         print("action finished ")
+        time.sleep(3)
 
 
 
