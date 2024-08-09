@@ -120,16 +120,18 @@ class MarioExpert:
         # return random.randint(0, len(self.environment.valid_actions) - 1)
 
         #================================================================================
-        print("increment count")
-        self.past_count = self.past_count + 1
-        print("now the count is: " + str(self.past_count))
+        # print("increment count")
+        # self.past_count = self.past_count + 1
+        # print("now the count is: " + str(self.past_count))
 
-        if (self.past_count > 3):
-            print("count is bigge than 3, return 0")
-            return 0
-        else:
-            print("count is not bigger than 3, return: " + str(self.test_action_list[self.past_count]))
-            return self.test_action_list[self.past_count]
+        # if (self.past_count > 3):
+        #     print("count is bigge than 3, return 0")
+        #     return 0
+        # else:
+        #     print("count is not bigger than 3, return: " + str(self.test_action_list[self.past_count]))
+        #     return self.test_action_list[self.past_count]
+
+        return 0
         #================================================================================
         
 
