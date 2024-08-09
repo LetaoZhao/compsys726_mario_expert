@@ -75,11 +75,11 @@ class MarioController(MarioEnvironment):
         """
 
         # Simply toggles the buttons being on or off for a duration of act_freq
-        print("In func run_action")
-        print("the pass in action is: " + str(action))
+        # print("In func run_action")
+        # print("the pass in action is: " + str(action))
 
         self.pyboy.send_input(self.valid_actions[action])
-        print("run action: " + str(self.valid_actions[action]))
+        # print("run action: " + str(self.valid_actions[action]))
 
         for _ in range(self.act_freq):
             self.pyboy.tick()
@@ -111,28 +111,37 @@ class MarioExpert:
         self.test_action_list = [4,2,2,2,2,2,4,4,4,2,2,2,2]
 
     def choose_action(self):
-        print("In func choose_action")
+        # print("In func choose_action")
         state = self.environment.game_state()
         frame = self.environment.grab_frame()
         game_area = self.environment.game_area()
+        print("===============================================")
+        print(state)
+        print("-----------------------------------------------")
+        print(frame)
+        print("-----------------------------------------------")
+        print(game_area)
+        print("===============================================")
+        print(" ")
+        print(" ")
 
         # Implement your code here to choose the best action
         time.sleep(0.25)
         # return random.randint(0, len(self.environment.valid_actions) - 1)
 
         #================================================================================
-        print("increment count")
-        self.past_count = self.past_count + 1
-        print("now the count is: " + str(self.past_count))
+        # print("increment count")
+        # self.past_count = self.past_count + 1
+        # print("now the count is: " + str(self.past_count))
 
-        if (self.past_count > len(self.test_action_list) - 1):
-            print("count is bigge than 5, return 0")
-            return 0
-        else:
-            print("count is not bigger than 3, return: " + str(self.test_action_list[self.past_count]))
-            return self.test_action_list[self.past_count]
+        # if (self.past_count > len(self.test_action_list) - 1):
+        #     print("count is bigge than 5, return 0")
+        #     return 0
+        # else:
+        #     print("count is not bigger than 3, return: " + str(self.test_action_list[self.past_count]))
+        #     return self.test_action_list[self.past_count]
         #================================================================================
-        
+        return 2
 
     def step(self):
         """
