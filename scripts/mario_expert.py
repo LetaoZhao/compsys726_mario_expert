@@ -44,12 +44,12 @@ class MarioController(MarioEnvironment):
 
         # Example of valid actions based purely on the buttons you can press
         valid_actions: list[WindowEvent] = [
-            WindowEvent.PRESS_ARROW_DOWN,
-            WindowEvent.PRESS_ARROW_LEFT,
-            WindowEvent.PRESS_ARROW_RIGHT,
-            WindowEvent.PRESS_ARROW_UP,
-            WindowEvent.PRESS_BUTTON_A,
-            WindowEvent.PRESS_BUTTON_B,
+            WindowEvent.PRESS_ARROW_DOWN,   # 0
+            WindowEvent.PRESS_ARROW_LEFT,   # 1
+            WindowEvent.PRESS_ARROW_RIGHT,  # 2
+            WindowEvent.PRESS_ARROW_UP,     # 3
+            WindowEvent.PRESS_BUTTON_A,     # 4
+            WindowEvent.PRESS_BUTTON_B,     # 5
         ]
 
         release_button: list[WindowEvent] = [
@@ -131,7 +131,10 @@ class MarioExpert:
 
         # Run the action on the environment
         self.environment.run_action(action)
+        print("action finished 1")
+        time.sleep(3)
         self.environment.run_action(action)
+        print("action finished 2")
 
     def play(self):
         """
