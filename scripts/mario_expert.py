@@ -79,7 +79,7 @@ class MarioController(MarioEnvironment):
         count = 0
         for _ in range(self.act_freq):
             self.pyboy.tick()
-            print("in tick " + count)
+            print("in tick " + str(count))
             count = count + 1
 
         self.pyboy.send_input(self.release_button[action])
@@ -138,7 +138,7 @@ class MarioExpert:
         print("action finished ")
 
 
-        
+
 
     def play(self):
         """
