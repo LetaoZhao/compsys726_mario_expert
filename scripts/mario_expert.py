@@ -49,8 +49,8 @@ class MarioController(MarioEnvironment):
             WindowEvent.PRESS_ARROW_LEFT,   #      4                     1
             WindowEvent.PRESS_ARROW_RIGHT,  #      3                     2
             WindowEvent.PRESS_ARROW_UP,     #                 ?
-            WindowEvent.PRESS_BUTTON_A,     #      4
-            WindowEvent.PRESS_BUTTON_B,     #      5
+            WindowEvent.PRESS_BUTTON_A,     #      5                     4
+            WindowEvent.PRESS_BUTTON_B,     #                 ?
         ]
 
         release_button: list[WindowEvent] = [
@@ -108,7 +108,7 @@ class MarioExpert:
         self.video = None
 
         self.past_count = -1
-        self.test_action_list = [0,1,2,3,4,5]
+        self.test_action_list = [4,2,2,2,2,2,4,4,4,2,2,2,2]
 
     def choose_action(self):
         print("In func choose_action")
@@ -121,17 +121,16 @@ class MarioExpert:
         # return random.randint(0, len(self.environment.valid_actions) - 1)
 
         #================================================================================
-        # print("increment count")
-        # self.past_count = self.past_count + 1
-        # print("now the count is: " + str(self.past_count))
+        print("increment count")
+        self.past_count = self.past_count + 1
+        print("now the count is: " + str(self.past_count))
 
-        # if (self.past_count > 5):
-        #     print("count is bigge than 5, return 0")
-        #     return 0
-        # else:
-        #     print("count is not bigger than 3, return: " + str(self.test_action_list[self.past_count]))
-        #     return self.test_action_list[self.past_count]
-        return 4
+        if (self.past_count > len(self.test_action_list) - 1):
+            print("count is bigge than 5, return 0")
+            return 0
+        else:
+            print("count is not bigger than 3, return: " + str(self.test_action_list[self.past_count]))
+            return self.test_action_list[self.past_count]
         #================================================================================
         
 
