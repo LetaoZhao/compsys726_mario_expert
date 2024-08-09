@@ -47,7 +47,7 @@ class MarioController(MarioEnvironment):
                                             #in_list value      #required input index
             WindowEvent.PRESS_ARROW_DOWN,   #      ?
             WindowEvent.PRESS_ARROW_LEFT,   #      4                     1
-            WindowEvent.PRESS_ARROW_RIGHT,  #      2
+            WindowEvent.PRESS_ARROW_RIGHT,  #      3                     2
             WindowEvent.PRESS_ARROW_UP,     #      3
             WindowEvent.PRESS_BUTTON_A,     #      4
             WindowEvent.PRESS_BUTTON_B,     #      5
@@ -131,7 +131,7 @@ class MarioExpert:
         # else:
         #     print("count is not bigger than 3, return: " + str(self.test_action_list[self.past_count]))
         #     return self.test_action_list[self.past_count]
-        return 2
+        return 1
         #================================================================================
         
 
