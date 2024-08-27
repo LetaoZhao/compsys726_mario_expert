@@ -129,16 +129,19 @@ class MarioExpert:
         time.sleep(0.25)
 
         # if (game_area[mario_position[1]][(mario_position[0] + 5)] == 15):
-        if(self.check_position_object(game_area,mario_position,[[5,0],[5,0]],15)):
+        if(self.check_position_object(game_area,mario_position,[[2,0],[2,1],[2,2],[3,0],[3,1],[3,2]],15)):
+            print("15 frount weit jump")
+            self.action_queue = [0,4]
+            return 0 #jump
+        elif(self.check_position_object(game_area,mario_position,[[2,2],[2,3],[3,2],[3,3]],15)):
+            print("15 up close, back")
+            return 1 #back
+        elif(self.check_position_object(game_area,mario_position,[[5,0],[5,0]],15)):
             print("15 frount jump")
             return 4 #jump
         elif(self.check_position_object(game_area,mario_position,[[4,0],[4,1],[4,2]],15)):
             print("15 frount weit weit jump")
             self.action_queue = [0,0,4]
-            return 0 #jump
-        elif(self.check_position_object(game_area,mario_position,[[2,0],[2,1],[2,2],[3,0],[3,1],[3,2]],15)):
-            print("15 frount weit jump")
-            self.action_queue = [0,4]
             return 0 #jump
         elif (self.check_position_object(game_area,mario_position,[[4,3],[4,4],[5,3],[5,4],[6,3],[6,4]],15)):
             print("15 up wait")
@@ -182,10 +185,10 @@ class MarioExpert:
 
         if (self.action_queue != []):
             action = self.action_queue[self.action_queue_index]
+            print("in queue, now doing: " + str(action))
             if (self.action_queue_index == (len(self.action_queue) - 1)):
                 self.action_queue = []
                 self.action_queue_index = 0
-                print("in queue, now doing: " + str(action))
             else:
                 self.action_queue_index = self.action_queue_index + 1
 
