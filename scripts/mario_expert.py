@@ -148,7 +148,7 @@ class MarioExpert:
             print("13 top stop jump")
             self.action_queue = [0,4]
             return 4 #jump
-        elif (self.check_position_object(game_area,mario_position,[[3,0],[2,0]],14)):
+        elif (self.check_position_object(game_area,mario_position,[[0,4],[1,4]],14)):
             print("14 frount go jump")
             self.action_queue = [2,2,4]
             return 4 #jump
