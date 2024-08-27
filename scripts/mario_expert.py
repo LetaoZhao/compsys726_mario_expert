@@ -202,19 +202,26 @@ class MarioExpert:
         """
 
         # Choose an action - button press or other...
-        action = self.choose_action()
+        print("1")
 
+        action = self.choose_action()
+        
         if (self.action_queue != []):
             action = self.action_queue[self.action_queue_index]
+            print("2")
             print("in queue, now doing: " + str(action))
             if (self.action_queue_index == (len(self.action_queue) - 1)):
                 self.action_queue = []
                 self.action_queue_index = 0
+                print("3")
             else:
                 self.action_queue_index = self.action_queue_index + 1
+                print("4")
+        print("5")
 
         # Run the action on the environment
         self.environment.run_action(action)
+        print("6")
 
     def check_position_object(self, Game_Area,mario_position, target_positions, target_object):
         #this function will return true if target object appears on any of the input positions
