@@ -151,6 +151,12 @@ class MarioExpert:
             self.environment.run_action(2)
             time.sleep(0.2)
             self.environment.run_action(4)
+            time.sleep(0.2)
+            self.environment.run_action(2)
+            time.sleep(0.2)
+            self.environment.run_action(2)
+            time.sleep(0.2)
+            self.environment.run_action(2)
             return 0
         elif(self.check_position_object(game_area,mario_position,[[2,0],[2,1]],15)):
             print("15 frount weit jump")
