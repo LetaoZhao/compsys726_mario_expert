@@ -136,7 +136,7 @@ class MarioExpert:
                 print("void miss")
                 return 1
             elif(self.air_timeout < 6):
-                return 4
+                return 5
             else:
                 self.air_timeout = 0
                 return 2
