@@ -127,7 +127,7 @@ class MarioExpert:
         time.sleep(0.25)
 
         # if (game_area[mario_position[1]][(mario_position[0] + 5)] == 15):
-        if(self.check_position_object(game_area,[5,0],15)):
+        if(self.check_position_object(game_area,[[5,0],[5,0]],15)):
             print("15 frount jump")
             return 4 #jump
         elif (game_area[mario_position[1] - 3][(mario_position[0] + 5)] == 15):
