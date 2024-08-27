@@ -119,8 +119,8 @@ class MarioExpert:
         print("===============================================")
         print(game_area)
         print("-----------------------------------------------")
-        objects_pos = self.get_object_GameArea_position(game_area)
-        print(objects_pos)
+        small_window = self.get_small_window()
+        print(small_window)
         print("===============================================")
 
         # Implement your code here to choose the best action
@@ -154,6 +154,31 @@ class MarioExpert:
         self.environment.run_action(action)
 
 
+    def get_small_window(self):
+        # get the 5*6 window in frount of mario, that the expert system needs to check
+        game_area = self.environment.game_area()
+        mario_position = self.get_mario_position(game_area)
+
+        small_window = []
+        for row_y in range((mario_position[2]-5),(mario_position[2]+1)):
+            for column_x in range(mario_position[1],(mario_position[1]+7)):
+                small_window[row_y-(mario_position[2]-5)][column_x-mario_position[1]] = game_area[row_y][column_x]
+        
+        print(str(small_window))
+        return small_window
+    
+    def get_mario_position(self, Game_Area):
+        # this function returns the position of mario   1  1
+        objects_position = []  #  return position  ->  (1) 1
+
+        #Traverse all the coordinates in the area and find the 4 mario pixels
+        for row_y in range(0,16):
+            for column_x in range(0,20):
+                if (Game_Area[row_y][column_x] == 1):
+                    objects_position.append([column_x,(row_y + 1)])
+                    print(str(objects_position))
+                    return objects_position
+    
     def get_object_GameArea_position(self, Game_Area):
         # print("search function start +++++++++++++++++++++++++++++++++++++++++++")
         # this function is used to get the position of any objects appeards in the game area
