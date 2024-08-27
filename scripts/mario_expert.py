@@ -142,7 +142,7 @@ class MarioExpert:
                 print("void, jump")
                 return 4
             else:
-                print(" ")
+                print("111")
         elif(self.check_position_object(game_area,mario_position,[[2,0],[2,1]],15)):
             print("15 frount weit jump")
             self.action_queue = [0,4]
