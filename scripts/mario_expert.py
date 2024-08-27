@@ -123,7 +123,7 @@ class MarioExpert:
         print("===============================================")
 
         # Implement your code here to choose the best action
-        #time.sleep(0.25)
+        time.sleep(0.25)
         # return random.randint(0, len(self.environment.valid_actions) - 1)
 
         #================================================================================
