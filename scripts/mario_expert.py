@@ -175,7 +175,7 @@ class MarioExpert:
         for row_y in range(0,16):
             for column_x in range(0,20):
                 if (Game_Area[row_y][column_x] == 1):
-                    objects_position.append([column_x,(row_y + 1)])
+                    objects_position = [column_x,(row_y + 1)]
                     print(str(objects_position))
                     return objects_position
     
