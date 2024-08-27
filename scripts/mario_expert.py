@@ -123,13 +123,16 @@ class MarioExpert:
 
 
         mario_position = self.get_mario_position(game_area)
+
+        time.sleep(0.25)
+        
         if (game_area[mario_position[1]][(mario_position[0] + 4)] == 15):
             return 4 #jump
         else:
             return 2 #frount
 
         # Implement your code here to choose the best action
-        time.sleep(0.25)
+        
         # return random.randint(0, len(self.environment.valid_actions) - 1)
 
         #================================================================================
