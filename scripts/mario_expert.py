@@ -128,6 +128,10 @@ class MarioExpert:
 
         if (game_area[mario_position[1]][(mario_position[0] + 5)] == 15):
             return 4 #jump
+        elif (game_area[mario_position[1] - 3][(mario_position[0] + 5)] == 15):
+            return 0 #wait
+        elif (game_area[mario_position[1] - 4][(mario_position[0] + 5)] == 15):
+            return 0 #wait
         elif (game_area[mario_position[1]][(mario_position[0] + 3)] == 14):
             return 4 #jump
         elif (game_area[mario_position[1]][(mario_position[0] + 3)] == 10):
