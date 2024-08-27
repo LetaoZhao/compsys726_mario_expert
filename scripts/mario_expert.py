@@ -185,6 +185,7 @@ class MarioExpert:
             if (self.action_queue_index == (len(self.action_queue) - 1)):
                 self.action_queue = []
                 self.action_queue_index = 0
+                print("in queue, now doing: " + str(action))
             else:
                 self.action_queue_index = self.action_queue_index + 1
 
