@@ -144,6 +144,9 @@ class MarioExpert:
                 self.air_timeout = 0
                 print("in air, time out")
                 return 2
+        elif(self.air_timeout != 0):
+            self.air_timeout = 0
+            return 2
         elif(self.check_position_object(game_area,mario_position,[[1,-1],[2,-1],[3,-1]],0) and (mario_position[1] == 13)):
             print("void, jump")
             self.environment.run_action(1)
@@ -195,7 +198,7 @@ class MarioExpert:
             return 4 #jump
         elif (self.check_position_object(game_area,mario_position,[[3,0],[2,0],[1,0],[3,1],[2,1],[1,1]],12)):
             print("12 frount jump")
-            self.action_queue = [2,42,2,] #bug
+            self.action_queue = [2,4,2,2] #bug
             return 4 #jump
         else:
             print("empty go")
