@@ -127,7 +127,7 @@ class MarioExpert:
 
         mario_position = self.get_mario_position(game_area)
 
-        time.sleep(0.25)
+        time.sleep(0.2)
 
         if(self.check_position_object(game_area,mario_position,[[0,-1],[0,-1]],0) and (self.check_position_object(game_area,mario_position,[[1,-1],[1,-1]],0))):
             print("in air, wait")
@@ -145,6 +145,8 @@ class MarioExpert:
             self.environment.run_action(1)
             time.sleep(0.25)
             self.environment.run_action(0)
+            time.sleep(0.25)
+            self.environment.run_action(2)
             time.sleep(0.25)
             self.environment.run_action(2)
             time.sleep(0.25)
