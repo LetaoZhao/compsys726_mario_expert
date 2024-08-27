@@ -109,7 +109,9 @@ class MarioExpert:
 
         self.past_count = -1
         self.test_action_list = [2,2,2,4,2,4,4]
-        # self.test_action_list = [2,2,2,4,2,2,2,2]
+
+        self.action_queue = []
+        self.action_queue_index = 0
 
     def choose_action(self):
         # print("In func choose_action")
@@ -130,7 +132,7 @@ class MarioExpert:
         if(self.check_position_object(game_area,mario_position,[[5,0],[4,0]],15)):
             print("15 frount jump")
             return 4 #jump
-        elif (self.check_position_object(game_area,mario_position,[[4,3],[4,4],[5,3],[5,4]],15)):
+        elif (self.check_position_object(game_area,mario_position,[[4,3],[4,4],[5,3],[5,4],[6,3],[6,4]],15)):
             print("15 up wait")
             return 0 #wait
         elif (self.check_position_object(game_area,mario_position,[[3,0],[2,0]],14)):
@@ -169,6 +171,14 @@ class MarioExpert:
 
         # Choose an action - button press or other...
         action = self.choose_action()
+           
+        if (self.action_queue != []):
+            action = self.action_queue[self.action_queue_index]
+            if (self.action_queue_index == (len(self.action_queue) - 1)):
+                self.action_queue = []
+                self.action_queue_index = 0
+            else:
+                self.action_queue_index = self.action_queue_index + 1
 
         # Run the action on the environment
         self.environment.run_action(action)
