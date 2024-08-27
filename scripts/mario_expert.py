@@ -137,6 +137,9 @@ class MarioExpert:
             else:
                 self.air_timeout = 0
                 return 2
+        elif(self.check_position_object(game_area,mario_position,[[1,-1],[2,-1],[3,-1]],0)):
+            if(mario_position[1] == 13):
+                return 4
         elif(self.check_position_object(game_area,mario_position,[[2,0],[2,1]],15)):
             print("15 frount weit jump")
             self.action_queue = [0,4]
@@ -212,19 +215,6 @@ class MarioExpert:
         # Run the action on the environment
         self.environment.run_action(action)
 
-
-    # def get_small_window(self):
-    #     # get the 5*6 window in frount of mario, that the expert system needs to check
-    #     game_area = self.environment.game_area()
-    #     mario_position = self.get_mario_position(game_area)
-
-    #     small_window = []
-    #     for row_y in range((mario_position[2]-5),(mario_position[2]+1)):
-    #         for column_x in range(mario_position[1],(mario_position[1]+7)):
-    #             small_window[row_y-(mario_position[2]-5)][column_x-mario_position[1]] = game_area[row_y][column_x]
-        
-    #     print(str(small_window))
-    #     return small_window
     def check_position_object(self, Game_Area,mario_position, target_positions, target_object):
         #this function will return true if target object appears on any of the input positions
         #target position using mario's local coordinate！！！！
