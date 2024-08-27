@@ -137,12 +137,9 @@ class MarioExpert:
             else:
                 self.air_timeout = 0
                 return 2
-        elif(self.check_position_object(game_area,mario_position,[[1,-1],[2,-1],[3,-1]],0)):
-            if(mario_position[1] == 13):
-                print("void, jump")
-                return 4
-            else:
-                print("111")
+        elif(self.check_position_object(game_area,mario_position,[[1,-1],[2,-1],[3,-1]],0) and (mario_position[1] == 13)):
+            print("void, jump")
+            return 4
         elif(self.check_position_object(game_area,mario_position,[[2,0],[2,1]],15)):
             print("15 frount weit jump")
             self.action_queue = [0,4]
