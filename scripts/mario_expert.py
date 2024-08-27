@@ -108,7 +108,7 @@ class MarioExpert:
         self.video = None
 
         self.past_count = -1
-        self.test_action_list = [2,2,2,2,2,2,2,2]
+        self.test_action_list = [2,2,2,4,2,2,2,2]
 
     def choose_action(self):
         # print("In func choose_action")
