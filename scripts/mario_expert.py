@@ -127,19 +127,16 @@ class MarioExpert:
         time.sleep(0.25)
 
         # if (game_area[mario_position[1]][(mario_position[0] + 5)] == 15):
-        if(self.check_position_object(game_area,[[5,0],[5,0]],15)):
+        if(self.check_position_object(game_area,[[5,0],[4,0]],15)):
             print("15 frount jump")
             return 4 #jump
-        elif (game_area[mario_position[1] - 3][(mario_position[0] + 5)] == 15):
-            print("15 up 3 wait")
+        elif (self.check_position_object(game_area,[[4,3],[4,4],[5,3],[5,4]],15)):
+            print("15 up wait")
             return 0 #wait
-        elif (game_area[mario_position[1] - 4][(mario_position[0] + 5)] == 15):
-            print("15 up 4 wait")
-            return 0 #wait
-        elif (game_area[mario_position[1]][(mario_position[0] + 3)] == 14):
+        elif (self.check_position_object(game_area,[[3,0],[2,0]],14)):
             print("14 frount jump")
             return 4 #jump
-        elif (game_area[mario_position[1]][(mario_position[0] + 3)] == 10):
+        elif (self.check_position_object(game_area,[[3,0],[2,0]],10)):
             print("10 frount jump")
             return 4 #jump
         else:
@@ -197,13 +194,16 @@ class MarioExpert:
         #         |
         #       mario ---------> +x
 
+        print("search " + str(target_object) + " ", end="")
+
         mario_position = self.get_mario_position(Game_Area)
         for Tpos_id in range(0,len(target_positions)):
             target_position_global = [mario_position[1]-target_positions[Tpos_id][1],mario_position[0]+target_positions[Tpos_id][0]]
-            print(target_position_global)
+            print(" " + str(target_position_global), end="")
             if (Game_Area[target_position_global[0]][target_position_global[1]] == target_object):
+                print("")
                 return True
-        
+        print("")
         return False
     
     def get_mario_position(self, Game_Area):
