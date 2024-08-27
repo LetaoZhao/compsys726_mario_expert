@@ -128,9 +128,10 @@ class MarioExpert:
 
         time.sleep(0.25)
 
-        if((self.check_position_object(game_area,mario_position,[[0,-1],[1,-1]],10)) == False):
-            print("in air, wait")
-            return 0
+        if(self.check_position_object(game_area,mario_position,[[0,-1],[0,-1]],0)):
+            if(self.check_position_object(game_area,mario_position,[[1,-1],[1,-1]],0)):
+                print("in air, wait")
+                return 0
         elif(self.check_position_object(game_area,mario_position,[[2,0],[2,1],[3,0],[3,1]],15)):
             print("15 frount weit jump")
             self.action_queue = [0,4]
