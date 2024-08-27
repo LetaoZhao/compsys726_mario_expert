@@ -132,7 +132,7 @@ class MarioExpert:
         if(self.check_position_object(game_area,mario_position,[[0,-1],[0,-1]],0) and (self.check_position_object(game_area,mario_position,[[1,-1],[1,-1]],0))):
             print("in air, wait")
             self.air_timeout = self.air_timeout + 1
-            if (game_area[11][14] == 0) or (game_area[12][14] == 0):
+            if (game_area[14][11] == 0) or (game_area[14][12] == 0):
                 print("void miss")
                 return 1
             elif(self.air_timeout < 6):
