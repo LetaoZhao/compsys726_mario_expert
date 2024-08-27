@@ -126,14 +126,15 @@ class MarioExpert:
 
         time.sleep(0.25)
 
-        if (game_area[mario_position[1]][(mario_position[0] + 5)] == 15):
+        # if (game_area[mario_position[1]][(mario_position[0] + 5)] == 15):
+        if(self.check_position_object(game_area,[5,0],15)):
             print("15 frount jump")
             return 4 #jump
         elif (game_area[mario_position[1] - 3][(mario_position[0] + 5)] == 15):
-            print("15 up 3 jump")
+            print("15 up 3 wait")
             return 0 #wait
         elif (game_area[mario_position[1] - 4][(mario_position[0] + 5)] == 15):
-            print("15 up 4 jump")
+            print("15 up 4 wait")
             return 0 #wait
         elif (game_area[mario_position[1]][(mario_position[0] + 3)] == 14):
             print("14 frount jump")
@@ -188,6 +189,22 @@ class MarioExpert:
         
     #     print(str(small_window))
     #     return small_window
+    def check_position_object(self, Game_Area, target_positions, target_object):
+        #this function will return true if target object appears on any of the input positions
+        #target position using mario's local coordinate！！！！
+        #        +Y
+        #         ^   (local coodinate)
+        #         |
+        #       mario ---------> +x
+
+        mario_position = self.get_mario_position(Game_Area)
+        for Tpos_id in range(0,len(target_positions)):
+            target_position_global = [mario_position[1]-target_positions[Tpos_id][1],mario_position[0]+target_positions[Tpos_id][0]]
+            print(target_position_global)
+            if (Game_Area[target_position_global[0]][target_position_global[1]] == target_object):
+                return True
+        
+        return False
     
     def get_mario_position(self, Game_Area):
         # this function returns the position of mario   1  1
