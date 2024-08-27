@@ -135,8 +135,10 @@ class MarioExpert:
             if (game_area[14][11] == 0) or (game_area[14][12] == 0):
                 print("void miss")
                 return 1
+            elif(self.check_position_object(game_area,mario_position,[[1,-1],[1,-2],[0,-1],[0,-2]],14)):
+                return 4
             elif(self.air_timeout < 6):
-                return 5
+                return 0
             else:
                 self.air_timeout = 0
                 return 2
