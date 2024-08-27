@@ -221,7 +221,9 @@ class MarioExpert:
         for Tpos_id in range(0,len(target_positions)):
             target_position_global = [mario_position[1]-target_positions[Tpos_id][1],mario_position[0]+target_positions[Tpos_id][0]]
             print(" " + str(target_position_global), end="")
-            if (Game_Area[target_position_global[0]][target_position_global[1]] == target_object):
+            if (target_position_global[0] < 0 or target_position_global[0] > 15 or target_position_global[1] < 0 or target_position_global[1] > 19):
+                print("skip")
+            elif (Game_Area[target_position_global[0]][target_position_global[1]] == target_object):
                 print("")
                 return True
         print("")
