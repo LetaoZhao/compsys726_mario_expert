@@ -125,8 +125,10 @@ class MarioExpert:
         mario_position = self.get_mario_position(game_area)
 
         time.sleep(0.25)
-        
-        if (game_area[mario_position[1]][(mario_position[0] + 4)] == 15):
+
+        if (game_area[mario_position[1]][(mario_position[0] + 5)] == 15):
+            return 4 #jump
+        elif (game_area[mario_position[1]][(mario_position[0] + 5)] == 14):
             return 4 #jump
         else:
             return 2 #frount
