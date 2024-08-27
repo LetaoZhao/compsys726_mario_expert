@@ -122,7 +122,7 @@ class MarioExpert:
         print("===============================================")
 
 
-        mario_position = self.get_mario_position()
+        mario_position = self.get_mario_position(game_area)
         if (game_area[mario_position[2]][(mario_position[1] + 4)] == 15):
             return 4 #jump
         else:
