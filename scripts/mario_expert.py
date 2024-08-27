@@ -119,25 +119,30 @@ class MarioExpert:
         print("===============================================")
         print(game_area)
         print("-----------------------------------------------")
-        small_window = self.get_small_window()
-        print(small_window)
         print("===============================================")
+
+
+        mario_position = self.get_mario_position()
+        if (game_area[mario_position[2]][(mario_position[1] + 4)] == 15):
+            return 4 #jump
+        else:
+            return 2 #frount
 
         # Implement your code here to choose the best action
         time.sleep(0.25)
         # return random.randint(0, len(self.environment.valid_actions) - 1)
 
         #================================================================================
-        # print("increment count")
-        self.past_count = self.past_count + 1
-        # print("now the count is: " + str(self.past_count))
+        # # print("increment count")
+        # self.past_count = self.past_count + 1
+        # # print("now the count is: " + str(self.past_count))
 
-        if (self.past_count > len(self.test_action_list) - 1):
-            # print("count is bigge than 5, return 0")
-            return 0
-        else:
-            # print("count is not bigger than 3, return: " + str(self.test_action_list[self.past_count]))
-            return self.test_action_list[self.past_count]
+        # if (self.past_count > len(self.test_action_list) - 1):
+        #     # print("count is bigge than 5, return 0")
+        #     return 0
+        # else:
+        #     # print("count is not bigger than 3, return: " + str(self.test_action_list[self.past_count]))
+        #     return self.test_action_list[self.past_count]
         #================================================================================
 
     def step(self):
@@ -154,18 +159,18 @@ class MarioExpert:
         self.environment.run_action(action)
 
 
-    def get_small_window(self):
-        # get the 5*6 window in frount of mario, that the expert system needs to check
-        game_area = self.environment.game_area()
-        mario_position = self.get_mario_position(game_area)
+    # def get_small_window(self):
+    #     # get the 5*6 window in frount of mario, that the expert system needs to check
+    #     game_area = self.environment.game_area()
+    #     mario_position = self.get_mario_position(game_area)
 
-        small_window = []
-        for row_y in range((mario_position[2]-5),(mario_position[2]+1)):
-            for column_x in range(mario_position[1],(mario_position[1]+7)):
-                small_window[row_y-(mario_position[2]-5)][column_x-mario_position[1]] = game_area[row_y][column_x]
+    #     small_window = []
+    #     for row_y in range((mario_position[2]-5),(mario_position[2]+1)):
+    #         for column_x in range(mario_position[1],(mario_position[1]+7)):
+    #             small_window[row_y-(mario_position[2]-5)][column_x-mario_position[1]] = game_area[row_y][column_x]
         
-        print(str(small_window))
-        return small_window
+    #     print(str(small_window))
+    #     return small_window
     
     def get_mario_position(self, Game_Area):
         # this function returns the position of mario   1  1
