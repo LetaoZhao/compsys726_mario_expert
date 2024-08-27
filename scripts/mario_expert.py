@@ -202,9 +202,10 @@ class MarioExpert:
         """
 
         # Choose an action - button press or other...
-        print("1")
+        print("0")
 
         action = self.choose_action()
+        print("1")
         
         if (self.action_queue != []):
             action = self.action_queue[self.action_queue_index]
