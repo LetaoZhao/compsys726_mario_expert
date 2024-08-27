@@ -187,15 +187,15 @@ class MarioExpert:
             return 0 #wati
         elif (self.check_position_object(game_area,mario_position,[[3,0],[2,0]],14)):
             print("14 frount go jump")
-            self.action_queue = [2,2,4]
+            self.action_queue = [2,2,4,2,2]
             return 4 #jump
         elif (self.check_position_object(game_area,mario_position,[[3,0],[2,0],[1,0]],10)):
             print("10 frount jump")
-            self.action_queue = [2,4] #bug
+            self.action_queue = [2,4,2,2] #bug
             return 4 #jump
         elif (self.check_position_object(game_area,mario_position,[[3,0],[2,0],[1,0],[3,1],[2,1],[1,1]],12)):
             print("12 frount jump")
-            self.action_queue = [2,4] #bug
+            self.action_queue = [2,42,2,] #bug
             return 4 #jump
         else:
             print("empty go")
