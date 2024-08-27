@@ -127,16 +127,22 @@ class MarioExpert:
         time.sleep(0.25)
 
         if (game_area[mario_position[1]][(mario_position[0] + 5)] == 15):
+            print("15 frount jump")
             return 4 #jump
         elif (game_area[mario_position[1] - 3][(mario_position[0] + 5)] == 15):
+            print("15 up 3 jump")
             return 0 #wait
         elif (game_area[mario_position[1] - 4][(mario_position[0] + 5)] == 15):
+            print("15 up 4 jump")
             return 0 #wait
         elif (game_area[mario_position[1]][(mario_position[0] + 3)] == 14):
+            print("14 frount jump")
             return 4 #jump
         elif (game_area[mario_position[1]][(mario_position[0] + 3)] == 10):
+            print("10 frount jump")
             return 4 #jump
         else:
+            print("empty go")
             return 2 #frount
 
         # Implement your code here to choose the best action
