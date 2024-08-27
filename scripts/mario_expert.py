@@ -146,7 +146,7 @@ class MarioExpert:
             return 0 #wait
         elif (self.check_position_object(game_area,mario_position,[[0,4],[1,4]],13)):
             print("13 top stop jump")
-            self.action_queue = [0,4]
+            self.action_queue = [1,0,4]
             return 4 #jump
         elif (self.check_position_object(game_area,mario_position,[[3,0],[2,0]],14)):
             print("14 frount go jump")
