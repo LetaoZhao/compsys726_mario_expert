@@ -126,6 +126,8 @@ class MarioExpert:
 
 
         mario_position = self.get_mario_position(game_area)
+        if(mario_position == [0,0]):
+            return 0
 
         time.sleep(0.05)
 
@@ -184,11 +186,17 @@ class MarioExpert:
         elif(self.check_position_object(game_area,mario_position,[[5,0],[5,0]],16)):
             print("16 frount jump")
             return 4 #jump
-        elif(self.check_position_object(game_area,mario_position,[[2,0],[2,1],[3,0],[3,1]],18)):
-            print("18 frount jump")
+        elif(self.check_position_object(game_area,mario_position,[[2,0],[2,1]],18)):
+            print("18 frount close jump")
+            self.action_queue = [2,4]
+            return 4 #jump
+        elif(self.check_position_object(game_area,mario_position,[[4,0],[4,1],[3,0],[3,1]],18)):
+            print("18 frount go jump")
+            self.action_queue = [2,4]
             return 4 #jump
         elif(self.check_position_object(game_area,mario_position,[[3,2],[3,3]],18)):
             print("18 frount up back")
+            self.action_queue = [1,1]
             return 1 #back
         elif(self.check_position_object(game_area,mario_position,[[2,-1],[2,-2],[3,-1],[3,-2]],15)):
             print("15 down wati")
@@ -291,6 +299,9 @@ class MarioExpert:
                     objects_position = [column_x,(row_y + 1)]
                     print(str(objects_position))
                     return objects_position
+        
+        if(objects_position == []):
+            return [0,0]
     
     def get_object_GameArea_position(self, Game_Area):
         # print("search function start +++++++++++++++++++++++++++++++++++++++++++")
