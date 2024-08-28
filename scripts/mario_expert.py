@@ -168,8 +168,8 @@ class MarioExpert:
                 return 1 #back
             else:
                 print("15 frount weit jump")
-                self.action_queue = [0,4]
-                return 0 
+                # self.action_queue = [0,4]
+                return 4 
         elif(self.check_position_object(game_area,mario_position,[[2,2],[2,3],[3,2],[3,3]],15)):
             print("15 up close, back")
             return 1 #back
