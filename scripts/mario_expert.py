@@ -153,7 +153,7 @@ class MarioExpert:
         elif(self.check_position_object(game_area,mario_position,[[1,-1],[2,-1],[3,-1]],0) and (mario_position[1] == 13)):
             self.handle_void_jump(game_area,mario_position,1)
             return 0
-        elif(self.check_position_object_AllMatch(game_area,mario_position,[[0,-1],[0,-2],[0,-3],[0,-4]],10) and self.check_position_object_AllMatch(game_area,mario_position,[[2,-1],[2,-2],[2,-3],[2,-4]],10) and (self.skip_count == 0)):
+        elif(self.check_position_object_AllMatch(game_area,mario_position,[[0,-1],[0,-2],[0,-3],[0,-4]],10) and self.check_position_object_AllMatch(game_area,mario_position,[[2,-1],[2,-2],[2,-3],[2,-4]],0) and (self.skip_count == 0)):
             print("high void jump")
             return 4
         elif(self.check_position_object(game_area,mario_position,[[2,0],[2,1]],15)):
