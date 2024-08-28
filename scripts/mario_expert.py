@@ -170,8 +170,12 @@ class MarioExpert:
             print("15 up close, back")
             return 1 #back
         elif(self.check_position_object(game_area,mario_position,[[5,0],[5,0]],15)):
-            print("15 frount jump")
-            return 4 #jump
+            if(self.check_position_object(game_area,mario_position,[[0,3],[1,3]],12) or self.check_position_object(game_area,mario_position,[[0,3],[1,3]],13)):
+                print("15 frount blocked back")
+                return 1 #jump
+            else:
+                print("15 frount jump")
+                return 4 #jump
         elif(self.check_position_object(game_area,mario_position,[[5,0],[5,0]],16)):
             print("16 frount jump")
             return 4 #jump
