@@ -147,22 +147,26 @@ class MarioExpert:
                 print("in air, time out")
                 return 2
         elif(self.check_position_object(game_area,mario_position,[[1,-1],[2,-1],[3,-1]],0) and (mario_position[1] == 13)):
-            print("void, jump")
-            self.environment.run_action(1)
-            time.sleep(0.2)
-            self.environment.run_action(0)
-            time.sleep(0.2)
-            self.environment.run_action(2)
-            time.sleep(0.2)
-            self.environment.run_action(2)
-            time.sleep(0.2)
-            self.environment.run_action(4)
-            time.sleep(0.2)
-            self.environment.run_action(2)
-            time.sleep(0.2)
-            self.environment.run_action(2)
-            time.sleep(0.2)
-            self.environment.run_action(2)
+            self.handle_void_jump(game_area,mario_position,1)
+            # print("void, jump")
+            # self.environment.run_action(1)
+            # time.sleep(0.2)
+            # self.environment.run_action(0)
+            # time.sleep(0.2)
+            # self.environment.run_action(2)
+            # time.sleep(0.2)
+            # self.environment.run_action(2)
+            # time.sleep(0.2)
+            # self.environment.run_action(4)
+            # time.sleep(0.2)
+            # self.environment.run_action(2)
+            # time.sleep(0.2)
+            # self.environment.run_action(2)
+            # time.sleep(0.2)
+            # self.environment.run_action(2)
+            return 0
+        elif(self.check_position_object(game_area,mario_position,[[1,-1],[2,-1],[3,-1]],0) and (mario_position[1] == 13)):
+            self.handle_void_jump(game_area,mario_position,2)
             return 0
         elif(self.check_position_object(game_area,mario_position,[[2,0],[2,1]],15)):
             if(self.check_position_object(game_area,mario_position,[[0,3],[1,3]],12) or self.check_position_object(game_area,mario_position,[[0,3],[1,3]],13) or self.check_position_object(game_area,mario_position,[[0,3],[1,3]],10)):
@@ -261,6 +265,38 @@ class MarioExpert:
 
         # Run the action on the environment
         self.environment.run_action(action)
+
+    def handle_void_jump(self,game_area,mario_position,void_type):
+        if(void_type == 1):
+            print("void, jump")
+            self.environment.run_action(1)
+            time.sleep(0.1)
+            self.environment.run_action(0)
+            time.sleep(0.1)
+            self.environment.run_action(2)
+            time.sleep(0.1)
+            self.environment.run_action(2)
+            time.sleep(0.1)
+            self.environment.run_action(4)
+            time.sleep(0.1)
+            self.environment.run_action(2)
+            time.sleep(0.1)
+            self.environment.run_action(2)
+            time.sleep(0.1)
+            self.environment.run_action(2)
+        elif(void_type == 2):
+            print("big void, jump")
+            while (self.check_position_object(game_area,mario_position,[[1,-1],[2,-1],[3,-1],[4,-1],[5,-1],[6,-1]],0)):
+                self.environment.run_action(1)
+                time.sleep(0.1)
+            while (self.check_position_object(game_area,mario_position,[[2,-1],[2,-1]],10)):
+                self.environment.run_action(2)
+                time.sleep(0.1)
+            self.environment.run_action(4)
+            time.sleep(0.1)
+            while (self.check_position_object(game_area,mario_position,[[0,-1],[0,-1]],10) == 0):
+                self.environment.run_action(2)
+                time.sleep(0.1)
 
     def check_position_object(self, Game_Area,mario_position, target_positions, target_object):
         #this function will return true if target object appears on any of the input positions
