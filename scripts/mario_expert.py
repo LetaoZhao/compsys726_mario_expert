@@ -271,6 +271,7 @@ class MarioExpert:
         elif(void_type == 2):
             print("big void, jump")
             while (self.check_position_object(game_area,mario_position,[[1,-1],[2,-1],[3,-1],[4,-1],[5,-1],[6,-1]],0)):
+                print(game_area)
                 self.environment.run_action(1)
                 time.sleep(0.1)
             while (self.check_position_object(game_area,mario_position,[[2,-1],[2,-1]],10)):
