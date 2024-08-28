@@ -146,7 +146,7 @@ class MarioExpert:
                 self.air_timeout = 0
                 print("in air, time out")
                 return 2
-        elif(self.check_position_object_AllMatch(self, game_area,mario_position,[[3,-1],[4,-1],[5,-1]], 0) or self.check_position_object_AllMatch(self, game_area,mario_position,[[6,-1],[4,-1],[5,-1]], 0)):
+        elif(self.check_position_object_AllMatch(game_area,mario_position,[[3,-1],[4,-1],[5,-1]],0) or self.check_position_object_AllMatch(game_area,mario_position,[[6,-1],[4,-1],[5,-1]], 0)):
             self.handle_void_jump(game_area,mario_position,2)
             return 0
         elif(self.check_position_object(game_area,mario_position,[[1,-1],[2,-1],[3,-1]],0) and (mario_position[1] == 13)):
