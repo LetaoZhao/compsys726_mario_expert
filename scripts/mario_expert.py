@@ -275,17 +275,21 @@ class MarioExpert:
                 self.environment.run_action(1)
                 time.sleep(0.1)
                 game_area = self.environment.game_area()
+                mario_position = self.get_mario_position(game_area)
             while (self.check_position_object(game_area,mario_position,[[2,-1],[2,-1]],10)):
                 self.environment.run_action(2)
                 time.sleep(0.1)
                 game_area = self.environment.game_area()
+                mario_position = self.get_mario_position(game_area)
             self.environment.run_action(4)
             time.sleep(0.1)
             game_area = self.environment.game_area()
+            mario_position = self.get_mario_position(game_area)
             while (self.check_position_object(game_area,mario_position,[[0,-1],[0,-1]],10) == 0):
                 self.environment.run_action(2)
                 time.sleep(0.1)
                 game_area = self.environment.game_area()
+                mario_position = self.get_mario_position(game_area)
 
     def check_position_object(self, Game_Area,mario_position, target_positions, target_object):
         #this function will return true if target object appears on ANY of the input positions
