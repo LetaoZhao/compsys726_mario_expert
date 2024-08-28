@@ -165,11 +165,12 @@ class MarioExpert:
         elif(self.check_position_object(game_area,mario_position,[[2,0],[2,1]],15)):
             if(self.check_position_object(game_area,mario_position,[[0,3],[1,3]],12) or self.check_position_object(game_area,mario_position,[[0,3],[1,3]],13) or self.check_position_object(game_area,mario_position,[[0,3],[1,3]],10)):
                 print("15 frount blocked back")
+                self.action_queue = [1,1]
                 return 1 #back
             else:
                 print("15 frount weit jump")
-                # self.action_queue = [0,4]
-                return 4 
+                self.action_queue = [0,4]
+                return 0
         elif(self.check_position_object(game_area,mario_position,[[2,2],[2,3],[3,2],[3,3]],15)):
             print("15 up close, back")
             return 1 #back
