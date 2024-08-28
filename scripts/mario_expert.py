@@ -276,7 +276,7 @@ class MarioExpert:
                 time.sleep(0.1)
                 game_area = self.environment.game_area()
                 mario_position = self.get_mario_position(game_area)
-            while (self.check_position_object(game_area,mario_position,[[2,-1],[2,-1]],10)):
+            while (self.check_position_object(game_area,mario_position,[[3,-1],[3,-1]],10)):
                 self.environment.run_action(2)
                 time.sleep(0.1)
                 game_area = self.environment.game_area()
