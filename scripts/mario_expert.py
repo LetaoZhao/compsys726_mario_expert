@@ -127,7 +127,7 @@ class MarioExpert:
 
         mario_position = self.get_mario_position(game_area)
 
-        time.sleep(0.15)
+        time.sleep(0.05)
 
         if(self.check_position_object(game_area,mario_position,[[0,-1],[0,-1]],0) and (self.check_position_object(game_area,mario_position,[[1,-1],[1,-1]],0))):
             self.air_timeout = self.air_timeout + 1
