@@ -113,6 +113,7 @@ class MarioExpert:
         self.action_queue = []
         self.action_queue_index = 0
         self.air_timeout = 0
+        self.skip_count = 0
 
     def choose_action(self):
         # print("In func choose_action")
@@ -152,6 +153,9 @@ class MarioExpert:
         elif(self.check_position_object(game_area,mario_position,[[1,-1],[2,-1],[3,-1]],0) and (mario_position[1] == 13)):
             self.handle_void_jump(game_area,mario_position,1)
             return 0
+        elif(self.check_position_object_AllMatch(game_area,mario_position,[[0,-1],[0,-2],[0,-3],[0,-4]],10) and self.check_position_object_AllMatch(game_area,mario_position,[[2,-1],[2,-2],[2,-3],[2,-4]],10) and (self.skip_count == 0)):
+            print("high void jump")
+            return 4
         elif(self.check_position_object(game_area,mario_position,[[2,0],[2,1]],15)):
             if(self.check_position_object(game_area,mario_position,[[0,3],[1,3]],12) or self.check_position_object(game_area,mario_position,[[0,3],[1,3]],13) or self.check_position_object(game_area,mario_position,[[0,3],[1,3]],10)):
                 print("15 frount blocked back")
@@ -302,12 +306,14 @@ class MarioExpert:
         #       mario ---------> +x
 
         print("search " + str(target_object) + " ", end="")
+        self.skip_count = 0
 
         for Tpos_id in range(0,len(target_positions)):
             target_position_global = [mario_position[1]-target_positions[Tpos_id][1],mario_position[0]+target_positions[Tpos_id][0]]
             print(" " + str(target_position_global), end="")
             if (target_position_global[0] < 0 or target_position_global[0] > 15 or target_position_global[1] < 0 or target_position_global[1] > 19):
                 print("skip")
+                self.skip_count = self.skip_count + 1
             elif (Game_Area[target_position_global[0]][target_position_global[1]] == target_object):
                 print("")
                 return True
