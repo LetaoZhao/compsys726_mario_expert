@@ -288,8 +288,6 @@ class MarioExpert:
             game_area = self.environment.game_area()
             mario_position = self.get_mario_position(game_area)
             while (self.check_position_object(game_area,mario_position,[[0,-1],[0,-1]],10) == 0):
-                self.environment.run_action(3)
-                time.sleep(0.1)
                 self.environment.run_action(2)
                 time.sleep(0.1)
                 game_area = self.environment.game_area()
