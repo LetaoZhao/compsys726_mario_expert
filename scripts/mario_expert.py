@@ -186,9 +186,9 @@ class MarioExpert:
             return 4 #jump
         elif(self.check_position_object(game_area,mario_position,[[3,0],[3,1]],18)):
             print("18 frount jump")
-            return 4 #jump
+            return 0 #jump
         elif(self.check_position_object(game_area,mario_position,[[2,-1],[2,-2],[3,-1],[3,-2]],15)):
-            print("15 down jump")
+            print("15 down wait")
             return 4 #jump
         elif (self.check_position_object(game_area,mario_position,[[3,0],[3,1],[4,0],[4,1],[4,2],[4,3],[4,4],[5,3],[5,4],[6,3],[6,4]],15)):
             print("15 up wait")
