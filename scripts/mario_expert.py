@@ -299,7 +299,7 @@ class MarioExpert:
         elif (self.check_position_object(game_area,mario_position,[[3,2],[3,3]],10)):
             return [2,4]
         else:
-            return 2
+            return [2]
 
     def check_position_object(self, Game_Area,mario_position, target_positions, target_object):
         #this function will return true if target object appears on ANY of the input positions
