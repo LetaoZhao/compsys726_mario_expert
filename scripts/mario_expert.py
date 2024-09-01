@@ -220,7 +220,7 @@ class MarioExpert:
                 self.action_queue = actions
                 return 0
             else:
-                return actions
+                return actions[0]
         else:
             print("empty go")
             return 2 #frount
