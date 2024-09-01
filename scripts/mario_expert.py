@@ -123,6 +123,7 @@ class MarioExpert:
         print("===============================================")
         print(game_area)
         print("----------------------------------------------")
+        print(state)
         print("===============================================")
 
 
@@ -147,18 +148,6 @@ class MarioExpert:
         elif(mario_position == [8,1]):
             print("1-1 final go")
             return 2
-        # elif(self.check_position_object_AllMatch(game_area,mario_position,[[3,-1],[4,-1],[5,-1]],0) and self.check_position_object_AllMatch(game_area,mario_position,[[6,0],[6,1]], 10)):
-        #     self.handle_void_jump(game_area,mario_position,2)
-        #     return 0
-        # elif(self.check_position_object_AllMatch(game_area,mario_position,[[6,-1],[4,-1],[5,-1]],0) and self.check_position_object_AllMatch(game_area,mario_position,[[7,0],[7,1]], 10)):
-        #     self.handle_void_jump(game_area,mario_position,2)
-        #     return 0
-        # elif(self.check_position_object(game_area,mario_position,[[1,-1],[2,-1],[3,-1]],0) and (mario_position[1] == 13)):
-        #     self.handle_void_jump(game_area,mario_position,1)
-        #     return 0
-        # elif(self.check_position_object_AllMatch(game_area,mario_position,[[0,-1],[0,-2],[0,-3],[0,-4]],10) and self.check_position_object_AllMatch(game_area,mario_position,[[2,-1],[2,-2],[2,-3],[2,-4]],0) and (self.skip_count == 0)):
-        #     print("high void jump")
-        #     return 4
         elif(self.check_position_object(game_area,mario_position,[[2,0],[2,1]],15)):
             if(self.check_position_object(game_area,mario_position,[[0,3],[1,3]],12) or self.check_position_object(game_area,mario_position,[[0,3],[1,3]],13) or self.check_position_object(game_area,mario_position,[[0,3],[1,3]],10)):
                 print("15 frount blocked back")
@@ -230,21 +219,6 @@ class MarioExpert:
             return 2 #frount
 
         # Implement your code here to choose the best action
-        
-        # return random.randint(0, len(self.environment.valid_actions) - 1)
-
-        #================================================================================
-        # # print("increment count")
-        # self.past_count = self.past_count + 1
-        # # print("now the count is: " + str(self.past_count))
-
-        # if (self.past_count > len(self.test_action_list) - 1):
-        #     # print("count is bigge than 5, return 0")
-        #     return 0
-        # else:
-        #     # print("count is not bigger than 3, return: " + str(self.test_action_list[self.past_count]))
-        #     return self.test_action_list[self.past_count]
-        #================================================================================
 
     def step(self):
         """
