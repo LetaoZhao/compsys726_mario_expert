@@ -45,12 +45,12 @@ class MarioController(MarioEnvironment):
         # Example of valid actions based purely on the buttons you can press
         valid_actions: list[WindowEvent] = [
                                             #in_list value      #required input index
-            WindowEvent.PRESS_ARROW_DOWN,   #                 ?
+            WindowEvent.PRESS_ARROW_DOWN,   #      -                     0
             WindowEvent.PRESS_ARROW_LEFT,   #      4                     1
             WindowEvent.PRESS_ARROW_RIGHT,  #      3                     2
-            WindowEvent.PRESS_ARROW_UP,     #                 ?
+            WindowEvent.PRESS_ARROW_UP,     #      -                     5
             WindowEvent.PRESS_BUTTON_A,     #      5                     4
-            WindowEvent.PRESS_BUTTON_B,     #                 ?
+            WindowEvent.PRESS_BUTTON_B,     #      -                     3
         ]
 
         release_button: list[WindowEvent] = [
@@ -346,28 +346,28 @@ class MarioExpert:
         if(objects_position == []):
             return [0,0]
     
-    def get_object_GameArea_position(self, Game_Area):
-        # print("search function start +++++++++++++++++++++++++++++++++++++++++++")
-        # this function is used to get the position of any objects appeards in the game area
-        # target_object input int:|      0      |   1   |  14  |      
-        #          actual meaming:| empty_space | mario | pipe |
+    # def get_object_GameArea_position(self, Game_Area):
+    #     # print("search function start +++++++++++++++++++++++++++++++++++++++++++")
+    #     # this function is used to get the position of any objects appeards in the game area
+    #     # target_object input int:|      0      |   1   |  14  |      
+    #     #          actual meaming:| empty_space | mario | pipe |
 
-        # the function will return all the objects's coordinates
-        objects_position = []     # [[x,y,object_type,object_inType_id],  --object 1 
-                                  #  [x,y,object_type,object_inType_id]]  --object 2
+    #     # the function will return all the objects's coordinates
+    #     objects_position = []     # [[x,y,object_type,object_inType_id],  --object 1 
+    #                               #  [x,y,object_type,object_inType_id]]  --object 2
 
-        #Traverse all the coordinates in the area and find the matching position
-        for row_y in range(0,16):
-            for column_x in range(0,20):
-                #print("at position: " + str(row_y) + "," + str(column_x))
-                temp_object_type = Game_Area[row_y][column_x]
-                #print("the object is: " + str(temp_object_type))
-                if ((temp_object_type != 0) and (temp_object_type != 10)):
-                    # print("at position: " + str(row_y) + "," + str(column_x))
-                    # print("the object is: " + str(temp_object_type))
-                    objects_position.append([column_x,row_y,temp_object_type,0])
+    #     #Traverse all the coordinates in the area and find the matching position
+    #     for row_y in range(0,16):
+    #         for column_x in range(0,20):
+    #             #print("at position: " + str(row_y) + "," + str(column_x))
+    #             temp_object_type = Game_Area[row_y][column_x]
+    #             #print("the object is: " + str(temp_object_type))
+    #             if ((temp_object_type != 0) and (temp_object_type != 10)):
+    #                 # print("at position: " + str(row_y) + "," + str(column_x))
+    #                 # print("the object is: " + str(temp_object_type))
+    #                 objects_position.append([column_x,row_y,temp_object_type,0])
 
-        return objects_position
+    #     return objects_position
 
 
     def play(self):
