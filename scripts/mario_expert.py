@@ -107,9 +107,6 @@ class MarioExpert:
 
         self.video = None
 
-        self.past_count = -1
-        self.test_action_list = [2,2,2,4,2,4,4]
-
         self.action_queue = []
         self.action_queue_index = 0
         self.air_timeout = 0
@@ -131,7 +128,7 @@ class MarioExpert:
         if(mario_position == [0,0]):
             return 0
 
-        time.sleep(0.01)
+        time.sleep(0.05)
 
         if(self.check_position_object(game_area,mario_position,[[0,-1],[0,-1]],0) and (self.check_position_object(game_area,mario_position,[[1,-1],[1,-1]],0))):
             self.air_timeout = self.air_timeout + 1
