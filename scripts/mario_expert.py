@@ -214,6 +214,13 @@ class MarioExpert:
             print("12 frount jump")
             self.action_queue = [2,4,2,2] #bug
             return 4 #jump
+        elif (state['stage'] == 2):
+            actions = self.one_two_optimise(game_area,mario_position)
+            if (len(actions) != 1):
+                self.action_queue = actions
+                return 0
+            else:
+                return actions
         else:
             print("empty go")
             return 2 #frount
@@ -285,6 +292,12 @@ class MarioExpert:
                 time.sleep(0.1)
                 game_area = self.environment.game_area()
                 mario_position = self.get_mario_position(game_area)
+
+    def one_two_optimise(self,game_area,mario_position):
+        if (self.check_position_object(game_area,mario_position,[[3,-1],[3,-1]],0)):
+            return [2,4]
+        if (self.check_position_object(game_area,mario_position,[[3,2],[3,3]],10)):
+            return [2,4]
 
     def check_position_object(self, Game_Area,mario_position, target_positions, target_object):
         #this function will return true if target object appears on ANY of the input positions
