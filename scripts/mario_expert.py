@@ -135,7 +135,8 @@ class MarioExpert:
 
         if(self.check_position_object(game_area,mario_position,[[0,-1],[0,-1]],0) and (self.check_position_object(game_area,mario_position,[[1,-1],[1,-1]],0))):
             self.air_timeout = self.air_timeout + 1
-            if (game_area[14][11] == 0) or (game_area[14][12] == 0):
+            # if (game_area[14][11] == 0) or (game_area[14][12] == 0):
+            if (self.if_colume_void(game_area,mario_position,3) or self.if_colume_void(game_area,mario_position,4)):
                 print("void miss")
                 return 1
             elif(self.air_timeout < 6):
@@ -300,6 +301,13 @@ class MarioExpert:
             return [2,4]
         else:
             return [2]
+        
+    def if_colume_void(self,game_area,mario_position,colume):
+        for ii in range(mario_position[1],15):
+            if (game_area[(ii+1)][(colume+mario_position[0])] != 0):
+                return False
+        
+        return True
 
     def check_position_object(self, Game_Area,mario_position, target_positions, target_object):
         #this function will return true if target object appears on ANY of the input positions
