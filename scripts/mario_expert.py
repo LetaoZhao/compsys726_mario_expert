@@ -147,18 +147,18 @@ class MarioExpert:
         elif(mario_position == [8,1]):
             print("1-1 final go")
             return 2
-        elif(self.check_position_object_AllMatch(game_area,mario_position,[[3,-1],[4,-1],[5,-1]],0) and self.check_position_object_AllMatch(game_area,mario_position,[[6,0],[6,1]], 10)):
-            self.handle_void_jump(game_area,mario_position,2)
-            return 0
-        elif(self.check_position_object_AllMatch(game_area,mario_position,[[6,-1],[4,-1],[5,-1]],0) and self.check_position_object_AllMatch(game_area,mario_position,[[7,0],[7,1]], 10)):
-            self.handle_void_jump(game_area,mario_position,2)
-            return 0
-        elif(self.check_position_object(game_area,mario_position,[[1,-1],[2,-1],[3,-1]],0) and (mario_position[1] == 13)):
-            self.handle_void_jump(game_area,mario_position,1)
-            return 0
-        elif(self.check_position_object_AllMatch(game_area,mario_position,[[0,-1],[0,-2],[0,-3],[0,-4]],10) and self.check_position_object_AllMatch(game_area,mario_position,[[2,-1],[2,-2],[2,-3],[2,-4]],0) and (self.skip_count == 0)):
-            print("high void jump")
-            return 4
+        # elif(self.check_position_object_AllMatch(game_area,mario_position,[[3,-1],[4,-1],[5,-1]],0) and self.check_position_object_AllMatch(game_area,mario_position,[[6,0],[6,1]], 10)):
+        #     self.handle_void_jump(game_area,mario_position,2)
+        #     return 0
+        # elif(self.check_position_object_AllMatch(game_area,mario_position,[[6,-1],[4,-1],[5,-1]],0) and self.check_position_object_AllMatch(game_area,mario_position,[[7,0],[7,1]], 10)):
+        #     self.handle_void_jump(game_area,mario_position,2)
+        #     return 0
+        # elif(self.check_position_object(game_area,mario_position,[[1,-1],[2,-1],[3,-1]],0) and (mario_position[1] == 13)):
+        #     self.handle_void_jump(game_area,mario_position,1)
+        #     return 0
+        # elif(self.check_position_object_AllMatch(game_area,mario_position,[[0,-1],[0,-2],[0,-3],[0,-4]],10) and self.check_position_object_AllMatch(game_area,mario_position,[[2,-1],[2,-2],[2,-3],[2,-4]],0) and (self.skip_count == 0)):
+        #     print("high void jump")
+        #     return 4
         elif(self.check_position_object(game_area,mario_position,[[2,0],[2,1]],15)):
             if(self.check_position_object(game_area,mario_position,[[0,3],[1,3]],12) or self.check_position_object(game_area,mario_position,[[0,3],[1,3]],13) or self.check_position_object(game_area,mario_position,[[0,3],[1,3]],10)):
                 print("15 frount blocked back")
@@ -194,6 +194,18 @@ class MarioExpert:
         elif (self.check_position_object(game_area,mario_position,[[3,0],[3,1],[4,0],[4,1],[4,2],[4,3],[4,4],[5,3],[5,4],[6,3],[6,4]],15)):
             print("15 up wait")
             return 0 #wait
+        elif(self.check_position_object_AllMatch(game_area,mario_position,[[3,-1],[4,-1],[5,-1]],0) and self.check_position_object_AllMatch(game_area,mario_position,[[6,0],[6,1]], 10)):
+            self.handle_void_jump(game_area,mario_position,2)
+            return 0
+        elif(self.check_position_object_AllMatch(game_area,mario_position,[[6,-1],[4,-1],[5,-1]],0) and self.check_position_object_AllMatch(game_area,mario_position,[[7,0],[7,1]], 10)):
+            self.handle_void_jump(game_area,mario_position,2)
+            return 0
+        elif(self.check_position_object(game_area,mario_position,[[1,-1],[2,-1],[3,-1]],0) and (mario_position[1] == 13)):
+            self.handle_void_jump(game_area,mario_position,1)
+            return 0
+        elif(self.check_position_object_AllMatch(game_area,mario_position,[[0,-1],[0,-2],[0,-3],[0,-4]],10) and self.check_position_object_AllMatch(game_area,mario_position,[[2,-1],[2,-2],[2,-3],[2,-4]],0) and (self.skip_count == 0)):
+            print("high void jump")
+            return 4
         elif (self.check_position_object(game_area,mario_position,[[0,4],[1,4]],13)):
             print("13 top stop jump")
             self.action_queue = [1,0,4]
@@ -346,29 +358,6 @@ class MarioExpert:
         if(objects_position == []):
             return [0,0]
     
-    # def get_object_GameArea_position(self, Game_Area):
-    #     # print("search function start +++++++++++++++++++++++++++++++++++++++++++")
-    #     # this function is used to get the position of any objects appeards in the game area
-    #     # target_object input int:|      0      |   1   |  14  |      
-    #     #          actual meaming:| empty_space | mario | pipe |
-
-    #     # the function will return all the objects's coordinates
-    #     objects_position = []     # [[x,y,object_type,object_inType_id],  --object 1 
-    #                               #  [x,y,object_type,object_inType_id]]  --object 2
-
-    #     #Traverse all the coordinates in the area and find the matching position
-    #     for row_y in range(0,16):
-    #         for column_x in range(0,20):
-    #             #print("at position: " + str(row_y) + "," + str(column_x))
-    #             temp_object_type = Game_Area[row_y][column_x]
-    #             #print("the object is: " + str(temp_object_type))
-    #             if ((temp_object_type != 0) and (temp_object_type != 10)):
-    #                 # print("at position: " + str(row_y) + "," + str(column_x))
-    #                 # print("the object is: " + str(temp_object_type))
-    #                 objects_position.append([column_x,row_y,temp_object_type,0])
-
-    #     return objects_position
-
 
     def play(self):
         """
